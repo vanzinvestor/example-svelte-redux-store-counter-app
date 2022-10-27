@@ -1,9 +1,18 @@
-# Svelte TypeScript Template
+# Example Svelte Redux Store (Couter app)
+
+```bash
+npm install svelte-redux-store
+```
+
+Read more: [npm package "svelte-redux-store"](https://www.npmjs.com/package/svelte-redux-store)
+
+## Svelte TypeScript Template
 
 ## Feature Support
 
 - [x] TypeScript
-- [x] SCSS/SASS
+- [x] Redux
+- [x] SASS/SCSS
 - [x] VS Code
 
 ## Use
