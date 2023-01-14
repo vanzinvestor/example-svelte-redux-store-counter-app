@@ -5,8 +5,8 @@
     useSelector,
     useStore,
     useSubscribe,
-    type AppState,
-  } from './store/store';
+  } from 'svelte-redux-store';
+  import type { AppState } from './store/store';
   const store = useStore();
   // const dispatch = useDispatch();
 

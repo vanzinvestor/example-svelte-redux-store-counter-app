@@ -2,7 +2,11 @@ import { applyMiddleware, createStore, type Middleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import rootReducers from './reducers';
-import { creatSvelteReduxStore } from 'svelte-redux-store'; //import this line
+import {
+  createUseEffect,
+  createUseState,
+  creatSvelteReduxStore,
+} from 'svelte-redux-store'; //import this line
 
 export type AppState = ReturnType<typeof rootReducers>;
 
@@ -15,8 +19,13 @@ const devTools =
     ? applyMiddleware(...middleware)
     : composeWithDevTools(applyMiddleware(...middleware));
 
-const store = createStore(rootReducers, initialState, devTools);
+export const store = createStore(rootReducers, initialState, devTools);
 
+/**
+ * If you use <Provider> (version 2.0.0 or latest).
+ * You can import { method } from 'svelte-redux-store';
+ * You don’t need to create svelte redux store
+ */
 // create svelte redux store
 export const {
   useStore,
@@ -25,3 +34,13 @@ export const {
   useFeatureSelector,
   useSubscribe,
 } = creatSvelteReduxStore<AppState>(store);
+
+// create useState (if you want)
+export const { useState } = createUseState();
+// OR
+// import {useState} from 'svelte-redux-store';
+
+// create useEffect (if you want)
+export const { useEffect } = createUseEffect();
+// OR
+// import {useEffect} from 'svelte-redux-store';

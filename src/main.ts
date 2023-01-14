@@ -1,7 +1,8 @@
-import App from './App.svelte';
+import Main from './Main.svelte';
 
-const app = new App({
-  target: document.body,
+const main = new Main({
+  // target: document.getElementById('app'), // vite
+  target: document.body, // rollup
 });
 
-export default app;
+export default main;
